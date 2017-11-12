@@ -1,21 +1,18 @@
+'use strict';
+
 import axios from 'axios'
 
 export default {
-  getData: () => {
-    const URL = `http://localhost:3001`
-    return axios.get(URL)
+
+  getInfo: (newsPage) => {
+    const data = { newsPage }
+    const url = `http://localhost:3001/api/${newsPage}`
+    return axios.post(url, data)
 
     .then(res => {
-      const users = res.data
-      const usersMap = users.map(user => {
-        return { 
-          users: user.username,
-          id: user.id          
-        }
+      return res.data
       })
 
-      return users
-    })
   }
 
 }

@@ -3,9 +3,7 @@ const request = require('request');
 
 function webScraped(req, res, next) {
 
-    const webDirection = req.body.newsPage.id
-
-    switch (webDirection) {
+    switch (req.webDirection) {
         case "lavanguardia":
             url = 'http://www.lavanguardia.com/'
             break;
